@@ -10,13 +10,14 @@ import Users from "../loginUtils/demoUser";
 const Login = (props) => {
   const history = useHistory();
   const onFinish = (values) => {
+
     const { username, password } = values;
 
     const userMatch = Users.filter(
       (user) => user.userName === username && user.password === password
     );
 
-    if (userMatch.userName) {
+    if (userMatch.length === 1) {
       history.push("/user");
     }
   };
